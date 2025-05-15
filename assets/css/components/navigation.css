@@ -1,173 +1,253 @@
 /* Navigation Component Styles */
 .nav_main {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0;
-  margin: 0;
   list-style: none;
-  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.nav_main li {
+.nav_main > li {
   position: relative;
-  margin: 0 3px;
+  margin-left: 5px;
 }
 
 .nav_main > li > a {
   display: block;
-  padding: 0.8rem 1.2rem;
-  text-decoration: none;
+  padding: 10px 15px;
   color: #333;
   font-weight: 500;
+  text-decoration: none;
   font-size: 1rem;
-  border-radius: 4px;
   transition: all 0.3s ease;
   position: relative;
+  border-radius: 4px;
 }
 
 .nav_main > li > a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 2px;
   background-color: var(--primary-color);
+  transition: all 0.3s ease;
   transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.nav_main > li:hover > a::after,
-.nav_main > li.active > a::after {
-  width: 80%;
 }
 
 .nav_main > li:hover > a {
   color: var(--primary-color);
-  background-color: rgba(0, 71, 157, 0.05);
+}
+
+.nav_main > li:hover > a::after,
+.nav_main > li.active > a::after {
+  width: 70%;
 }
 
 .nav_main > li.active > a {
   color: var(--primary-color);
-  font-weight: 600;
 }
 
-/* 서브메뉴 토글 아이콘 */
-.submenu-toggle {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.submenu-toggle i {
-  font-size: 12px;
-  color: #777;
-  transition: all 0.3s ease;
-}
-
-.submenu-toggle.active i {
-  transform: rotate(180deg);
-  color: var(--primary-color);
-}
-
-/* Submenu styles */
 .nav_submenu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
+  width: 220px;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-  z-index: 100;
-  padding: 8px 0;
-  margin: 0;
-  list-style: none;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  list-style: none;
 }
 
-.nav_main li:hover .nav_submenu {
-  display: block;
+.nav_main > li:hover .nav_submenu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
 .nav_submenu li {
-  width: 100%;
+  padding: 0;
   margin: 0;
 }
 
-.nav_submenu li a {
+.nav_submenu a {
   display: block;
   padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
+  color: #555;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
   position: relative;
+  z-index: 1;
 }
 
-.nav_submenu li a:hover {
-  color: var(--primary-color);
-  background-color: rgba(0, 71, 157, 0.05);
-  padding-left: 24px;
-}
-
-.nav_submenu li a::before {
+.nav_submenu a::before {
   content: '';
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: 0;
+  height: 100%;
   width: 0;
-  height: 1px;
-  background-color: var(--primary-color);
-  transition: width 0.2s ease;
-  transform: translateY(-50%);
+  background-color: rgba(0, 71, 157, 0.08);
+  z-index: -1;
+  transition: width 0.3s ease;
+  border-radius: 4px;
 }
 
-.nav_submenu li a:hover::before {
-  width: 6px;
+.nav_submenu a:hover {
+  color: var(--primary-color);
 }
 
-/* Mobile navigation */
+.nav_submenu a:hover::before {
+  width: calc(100% - 20px);
+}
+
+.submenu-toggle {
+  display: none;
+  margin-left: 5px;
+  font-size: 0.7rem;
+  color: #999;
+}
+
+/* 모바일 네비게이션 스타일 */
 .nav_toggle {
   display: none;
   background: none;
   border: none;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  padding: 10px;
+  position: relative;
   z-index: 1000;
 }
 
 .nav_toggle span {
   display: block;
   width: 25px;
-  height: 3px;
-  margin-bottom: 5px;
-  position: relative;
-  background: #333;
-  border-radius: 3px;
-  z-index: 1;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 2px;
+  background-color: #333;
+  margin: 5px auto;
+  transition: all 0.3s ease;
 }
 
-.nav_toggle span:last-child {
-  margin-bottom: 0;
+@media (max-width: 991px) {
+  .nav_toggle {
+    display: block;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    overflow-y: auto;
+    z-index: 999;
+    padding: 80px 0 30px;
+  }
+  
+  .main-nav.active {
+    right: 0;
+  }
+  
+  .nav_main {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav_main > li {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .nav_main > li > a {
+    padding: 15px 20px;
+    width: 100%;
+    border-radius: 0;
+  }
+  
+  .nav_main > li > a::after {
+    display: none;
+  }
+  
+  .submenu-toggle {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .submenu-toggle.active {
+    transform: rotate(180deg);
+  }
+  
+  .nav_submenu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    display: none;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .nav_submenu.show {
+    display: block;
+    max-height: 500px;
+    transition: max-height 0.5s ease;
+  }
+  
+  .nav_submenu a {
+    padding: 12px 20px 12px 35px;
+  }
+  
+  .nav_submenu a::before {
+    left: 20px;
+  }
+  
+  .body-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+  
+  .body-overlay.active {
+    display: block;
+  }
+  
+  .nav_toggle.active span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .nav_toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav_toggle.active span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 }
 
 /* 헤더 내부 컴포넌트 스타일 */
