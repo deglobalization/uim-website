@@ -52,7 +52,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="video-container">
-        <video autoplay loop playsinline preload="auto" controls muted>
+        <video autoplay loop playsinline preload="auto" controls>
           <source src="assets/video/main-video.mp4" type="video/mp4">
           귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
         </video>
@@ -67,26 +67,25 @@
         document.addEventListener('DOMContentLoaded', function() {
           const video = document.querySelector('.video-container video');
           if (video) {
-            video.muted = true; // 자동 재생을 위해 음소거 필요
+            // 자동 재생 시도 (음소거 없이)
             video.play().catch(function(error) {
               console.log('Auto-play was prevented: ', error);
-              // 자동 재생이 차단되면 사용자에게 재생 버튼을 눌러달라는 메시지 표시
-              const playPrompt = document.createElement('div');
-              playPrompt.className = 'play-prompt';
-              playPrompt.innerHTML = '<i class="fas fa-play-circle"></i><span>클릭하여 영상 재생</span>';
-              video.parentNode.appendChild(playPrompt);
-              
-              playPrompt.addEventListener('click', function() {
-                video.play();
-                playPrompt.style.display = 'none';
+              // 자동 재생이 차단되면 음소거 모드로 다시 시도
+              video.muted = true;
+              video.play().catch(function(innerError) {
+                console.log('Muted auto-play was also prevented: ', innerError);
+                // 음소거 모드도 차단되면 사용자에게 재생 버튼을 눌러달라는 메시지 표시
+                const playPrompt = document.createElement('div');
+                playPrompt.className = 'play-prompt';
+                playPrompt.innerHTML = '<i class="fas fa-play-circle"></i><span>클릭하여 영상 재생</span>';
+                video.parentNode.appendChild(playPrompt);
+                
+                playPrompt.addEventListener('click', function() {
+                  video.play();
+                  video.muted = false; // 클릭 시 음소거 해제
+                  playPrompt.style.display = 'none';
+                });
               });
-            });
-            
-            // 사용자 상호작용 후 음소거 해제 가능하도록 함
-            video.addEventListener('click', function() {
-              if (video.muted) {
-                video.muted = false;
-              }
             });
           }
         });
