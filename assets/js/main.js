@@ -14,36 +14,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Submenu toggle for mobile
-  const hasSubmenu = document.querySelectorAll('.nav_main li.has-submenu');
+  // 서브메뉴 토글 처리
+  const hasSubmenuItems = document.querySelectorAll('.has-submenu');
   
-  hasSubmenu.forEach(function(item) {
+  hasSubmenuItems.forEach(function(item) {
     const link = item.querySelector('a');
+    const submenuToggle = item.querySelector('.submenu-toggle');
+    const submenu = item.querySelector('.nav_submenu');
     
+    // 모바일에서는 토글 클릭으로 서브메뉴 열기/닫기
+    if (submenuToggle) {
+      submenuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 다른 열린 메뉴 닫기
+        hasSubmenuItems.forEach(function(otherItem) {
+          if (otherItem !== item && otherItem.classList.contains('open')) {
+            otherItem.classList.remove('open');
+            
+            const otherSubmenuToggle = otherItem.querySelector('.submenu-toggle');
+            if (otherSubmenuToggle) {
+              otherSubmenuToggle.classList.remove('active');
+            }
+          }
+        });
+        
+        // 현재 메뉴 토글
+        item.classList.toggle('open');
+        submenuToggle.classList.toggle('active');
+      });
+    }
+    
+    // 모바일에서 링크 클릭 시 처리
     if (link) {
-      // 모바일 환경에서 서브메뉴를 토글하기 위한 이벤트 리스너 추가
-      if (window.innerWidth <= 768) {
-        link.addEventListener('click', function(e) {
+      link.addEventListener('click', function(e) {
+        // 모바일 환경이고 서브메뉴가 있으면 클릭 시 서브메뉴 토글
+        if (window.innerWidth <= 768 && submenu) {
           e.preventDefault();
-          // 다른 열린 서브메뉴 닫기
-          hasSubmenu.forEach(function(otherItem) {
+          
+          // 다른 열린 메뉴 닫기
+          hasSubmenuItems.forEach(function(otherItem) {
             if (otherItem !== item && otherItem.classList.contains('open')) {
               otherItem.classList.remove('open');
             }
           });
+          
           item.classList.toggle('open');
-        });
-      }
-      
-      // 화면 크기가 변경될 때 이벤트 처리
-      window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-          link.onclick = function(e) {
-            e.preventDefault();
-            item.classList.toggle('open');
-          };
-        } else {
-          link.onclick = null;
+          if (submenuToggle) {
+            submenuToggle.classList.toggle('active');
+          }
         }
       });
     }
@@ -60,12 +80,34 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('menu-open');
         
         // 모든 열린 서브메뉴 닫기
-        hasSubmenu.forEach(function(item) {
+        hasSubmenuItems.forEach(function(item) {
           item.classList.remove('open');
+          const toggle = item.querySelector('.submenu-toggle');
+          if (toggle) {
+            toggle.classList.remove('active');
+          }
         });
       }
     }
   });
+  
+  // 스크롤 이벤트에 따른 헤더 스타일 변경
+  const header = document.querySelector('.header');
+  
+  if (header) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // 페이지 로드 시 초기 상태 설정
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    }
+  }
   
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
