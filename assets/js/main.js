@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (navToggle && navMain) {
     navToggle.addEventListener('click', function() {
       navMain.classList.toggle('show');
+      navToggle.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
     });
   }
   
@@ -18,11 +20,50 @@ document.addEventListener('DOMContentLoaded', function() {
   hasSubmenu.forEach(function(item) {
     const link = item.querySelector('a');
     
-    if (link && window.innerWidth <= 768) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        item.classList.toggle('open');
+    if (link) {
+      // 모바일 환경에서 서브메뉴를 토글하기 위한 이벤트 리스너 추가
+      if (window.innerWidth <= 768) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          // 다른 열린 서브메뉴 닫기
+          hasSubmenu.forEach(function(otherItem) {
+            if (otherItem !== item && otherItem.classList.contains('open')) {
+              otherItem.classList.remove('open');
+            }
+          });
+          item.classList.toggle('open');
+        });
+      }
+      
+      // 화면 크기가 변경될 때 이벤트 처리
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          link.onclick = function(e) {
+            e.preventDefault();
+            item.classList.toggle('open');
+          };
+        } else {
+          link.onclick = null;
+        }
       });
+    }
+  });
+
+  // 메뉴 외부 클릭 시 닫기
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768 && navMain && navMain.classList.contains('show')) {
+      const isClickInside = navToggle.contains(e.target) || navMain.contains(e.target);
+      
+      if (!isClickInside) {
+        navMain.classList.remove('show');
+        navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        
+        // 모든 열린 서브메뉴 닫기
+        hasSubmenu.forEach(function(item) {
+          item.classList.remove('open');
+        });
+      }
     }
   });
   

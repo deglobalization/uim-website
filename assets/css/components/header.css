@@ -2,16 +2,32 @@
 .header {
   width: 100%;
   position: relative;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
 
-.area_logo {
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
   display: flex;
   align-items: center;
 }
 
-.site_name {
+.site-name {
   font-size: 1.5rem;
   margin: 0;
+}
+
+.site-name a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .area_navbar {
@@ -48,4 +64,26 @@
   left: 0;
   width: 100%;
   height: 3px;
+}
+
+/* 모바일 스타일 */
+@media (max-width: 768px) {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+  
+  .header-inner {
+    padding: 0.75rem 0;
+  }
+  
+  .site-name {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .site-name {
+    font-size: 1.1rem;
+  }
 } 
