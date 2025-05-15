@@ -230,13 +230,27 @@ function initFacilitiesSlider() {
     const slide = document.createElement('div');
     slide.className = 'slider-slide';
     slide.dataset.index = index;
-    slide.innerHTML = `
-      <img src="${item.src}" alt="${item.title}" class="${item.filter}">
-      <div class="slider-caption">
-        <h3 class="slider-title">${item.title}</h3>
-        <p class="slider-desc">${item.desc}</p>
-      </div>
+    
+    // 이미지 로드 에러 처리
+    const img = new Image();
+    img.src = item.src;
+    img.alt = item.title || '병원 시설 이미지';
+    img.className = item.filter || '';
+    img.onerror = function() {
+      // 이미지 로드 실패시 대체 이미지
+      this.src = '/gounsokim-website/assets/images/mosaAOig7L.png';
+      console.log('이미지 로드 실패:', item.src);
+    };
+    
+    const caption = document.createElement('div');
+    caption.className = 'slider-caption';
+    caption.innerHTML = `
+      <h3 class="slider-title">${item.title || ''}</h3>
+      <p class="slider-desc">${item.desc || ''}</p>
     `;
+    
+    slide.appendChild(img);
+    slide.appendChild(caption);
     sliderWrapper.appendChild(slide);
     
     // 도트 생성
@@ -248,15 +262,20 @@ function initFacilitiesSlider() {
   
   // 이벤트 핸들러
   let currentIndex = 0;
+  let isAnimating = false;
   const totalItems = galleryItems.length;
   
   // 슬라이드 변경 함수
   function goToSlide(index) {
+    if (isAnimating) return;
+    isAnimating = true;
+    
     // 범위 확인
     if (index < 0) index = 0;
     if (index >= totalItems) index = totalItems - 1;
     
     // 슬라이드 이동
+    sliderWrapper.style.transition = 'transform 0.5s ease';
     sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
     
     // 디버깅용 로그
@@ -268,6 +287,11 @@ function initFacilitiesSlider() {
     });
     
     currentIndex = index;
+    
+    // 애니메이션 완료 후 상태 업데이트
+    setTimeout(() => {
+      isAnimating = false;
+    }, 500);
   }
   
   // 슬라이더 컨트롤 버튼 이벤트 연결
@@ -275,13 +299,15 @@ function initFacilitiesSlider() {
   const nextBtn = document.querySelector('.facilities-section .slider-next');
   
   if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
+    prevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       goToSlide((currentIndex - 1 + totalItems) % totalItems);
     });
   }
   
   if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
+    nextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       goToSlide((currentIndex + 1) % totalItems);
     });
   }
@@ -296,7 +322,9 @@ function initFacilitiesSlider() {
   
   // 자동 슬라이드
   let autoSlide = setInterval(function() {
-    if (nextBtn) nextBtn.click();
+    if (!document.hidden && !isAnimating) {
+      goToSlide((currentIndex + 1) % totalItems);
+    }
   }, 5000);
   
   // 슬라이더에 마우스 올리면 자동 슬라이드 멈춤
@@ -308,38 +336,81 @@ function initFacilitiesSlider() {
     
     slider.addEventListener('mouseleave', function() {
       autoSlide = setInterval(function() {
-        if (nextBtn) nextBtn.click();
+        if (!document.hidden && !isAnimating) {
+          goToSlide((currentIndex + 1) % totalItems);
+        }
       }, 5000);
     });
   }
   
   // 터치 이벤트 (모바일용)
   let startX, moveX;
+  let threshold = 50; // 스와이프 인식 거리 (픽셀)
   
   if (slider) {
     slider.addEventListener('touchstart', function(e) {
       startX = e.touches[0].pageX;
       moveX = startX; // 초기화
-    });
+      isAnimating = false; // 터치 시작시 애니메이션 상태 초기화
+      clearInterval(autoSlide); // 터치 중에는 자동 슬라이드 중지
+    }, {passive: true});
     
     slider.addEventListener('touchmove', function(e) {
       moveX = e.touches[0].pageX;
-    });
+      
+      // 미리보기 이동 효과
+      const diff = moveX - startX;
+      const translateX = -currentIndex * 100 + (diff / slider.offsetWidth * 100);
+      
+      // 경계값 설정 (처음과 마지막 슬라이드에서 저항감 추가)
+      if ((currentIndex === 0 && diff > 0) || (currentIndex === totalItems - 1 && diff < 0)) {
+        sliderWrapper.style.transition = 'none';
+        sliderWrapper.style.transform = `translateX(${translateX / 3}%)`; // 저항감을 위해 이동 거리 감소
+      } else {
+        sliderWrapper.style.transition = 'none';
+        sliderWrapper.style.transform = `translateX(${translateX}%)`;
+      }
+    }, {passive: true});
     
     slider.addEventListener('touchend', function() {
-      if (startX - moveX > 50) { // 왼쪽으로 스와이프
+      sliderWrapper.style.transition = 'transform 0.3s ease';
+      
+      if (startX - moveX > threshold) { // 왼쪽으로 스와이프
         goToSlide((currentIndex + 1) % totalItems);
-      } else if (moveX - startX > 50) { // 오른쪽으로 스와이프
+      } else if (moveX - startX > threshold) { // 오른쪽으로 스와이프
         goToSlide((currentIndex - 1 + totalItems) % totalItems);
+      } else {
+        // 역치에 도달하지 못했을 때 원래 슬라이드로 복귀
+        goToSlide(currentIndex);
       }
-    });
+      
+      // 터치 이벤트 종료 후 자동 슬라이드 재시작
+      autoSlide = setInterval(function() {
+        if (!document.hidden && !isAnimating) {
+          goToSlide((currentIndex + 1) % totalItems);
+        }
+      }, 5000);
+    }, {passive: true});
   }
   
-  // 첫 번째 슬라이드 활성화
-  goToSlide(0);
+  // 페이지 가시성 변경 감지 (탭 전환 등)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      clearInterval(autoSlide);
+    } else {
+      autoSlide = setInterval(function() {
+        if (!isAnimating) {
+          goToSlide((currentIndex + 1) % totalItems);
+        }
+      }, 5000);
+    }
+  });
   
   // 창 크기 변경 시 슬라이드 위치 조정
   window.addEventListener('resize', function() {
     goToSlide(currentIndex);
   });
+  
+  // 첫 번째 슬라이드 활성화
+  goToSlide(0);
 } 

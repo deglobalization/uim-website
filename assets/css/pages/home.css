@@ -377,19 +377,31 @@
 @media (max-width: 768px) {
   .hero {
     height: 400px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    bottom: auto;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0 1rem;
+    width: 100%;
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   
   .about-content,
   .contact-info {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   
   .grid {
@@ -398,6 +410,116 @@
   
   .image-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .facilities-slider-container {
+    padding: 0;
+  }
+  
+  .facilities-slider {
+    padding: 0;
+    border-radius: 0;
+  }
+  
+  .slider-caption {
+    padding: 0.75rem;
+  }
+  
+  .slider-title {
+    font-size: 1.2rem;
+  }
+  
+  .slider-desc {
+    font-size: 0.9rem;
+  }
+  
+  .slider-controls {
+    position: relative;
+    top: auto;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+  
+  .slider-prev, 
+  .slider-next {
+    position: static;
+    transform: none;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .services-preview {
+    padding: 2rem 0;
+  }
+  
+  .service-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    height: 300px;
+  }
+  
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .facilities-title {
+    font-size: 1.3rem;
+  }
+  
+  .facilities-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .facilities-slider {
+    margin: 0;
+  }
+  
+  .slider-wrapper {
+    border-radius: 0;
+  }
+  
+  .slider-slide {
+    padding: 0;
+  }
+  
+  .slider-img {
+    border-radius: 4px;
+  }
+  
+  .slider-dots {
+    margin-top: 0.5rem;
+  }
+  
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+  }
+  
+  .feature-card {
+    padding: 1rem 0.5rem;
   }
 }
 
@@ -636,46 +758,6 @@
   
   .image-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .facilities-title {
-    font-size: 2rem;
-  }
-  
-  .facilities-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .facilities-slider {
-    height: 300px;
-  }
-  
-  .slider-caption {
-    padding: 1rem;
-  }
-  
-  .slider-title {
-    font-size: 1.3rem;
-  }
-  
-  .slider-desc {
-    font-size: 0.9rem;
-    max-width: 100%;
-  }
-  
-  .overview-title {
-    font-size: 1.5rem;
-  }
-  
-  .overview-desc {
-    font-size: 1rem;
-  }
-  
-  .image-grid {
-    grid-template-columns: 1fr;
   }
 }
 
