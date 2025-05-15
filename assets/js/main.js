@@ -300,31 +300,31 @@ function initFacilitiesSlider() {
   // 갤러리 데이터
   const galleryItems = [
     {
-      src: "/yu-website/assets/images/facilities/mosaH9SH8k.jpeg",
+      src: "/uim-website/assets/images/facilities/mosaH9SH8k.jpeg",
       title: "현대적인 리셉션",
       desc: "환자분들을 친절히 맞이하는 현대적인 리셉션 공간입니다.",
       filter: "image-filter-elegant"
     },
     {
-      src: "/yu-website/assets/images/facilities/mosa2fTcOd.jpeg",
+      src: "/uim-website/assets/images/facilities/mosa2fTcOd.jpeg",
       title: "첨단 내시경 센터",
       desc: "최신 내시경 장비로 정확하고 안전한 검사를 제공합니다.",
       filter: "image-filter-warm"
     },
     {
-      src: "/yu-website/assets/images/facilities/mosackqd6q.jpeg",
+      src: "/uim-website/assets/images/facilities/mosackqd6q.jpeg",
       title: "",
       desc: "",
       filter: "image-filter-medical"
     },
     {
-      src: "/yu-website/assets/images/facilities/mosar5JXgk.jpeg",
+      src: "/uim-website/assets/images/facilities/mosar5JXgk.jpeg",
       title: "현대적인 진료실",
       desc: "최신 의료 장비를 갖춘 진료실에서 정확한 진단을 제공합니다.",
       filter: "image-filter-crisp"
     },
     {
-      src: "/yu-website/assets/images/facilities/mosaLMsOTh.jpeg",
+      src: "/uim-website/assets/images/facilities/mosaLMsOTh.jpeg",
       title: "쾌적한 대기 공간",
       desc: "진료 전 편안하게 대기할 수 있는 안락한 공간입니다.",
       filter: "image-filter-elegant"
@@ -349,7 +349,7 @@ function initFacilitiesSlider() {
     img.className = item.filter || '';
     img.onerror = function() {
       // 이미지 로드 실패시 대체 이미지
-      this.src = '/yu-website/assets/images/mosaAOig7L.png';
+      this.src = '/uim-website/assets/images/mosaAOig7L.png';
       console.log('이미지 로드 실패:', item.src);
     };
     
