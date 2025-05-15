@@ -1,0 +1,51 @@
+/* Header Component Styles */
+.header {
+  width: 100%;
+  position: relative;
+}
+
+.area_logo {
+  display: flex;
+  align-items: center;
+}
+
+.site_name {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.area_navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_sitemenu_wrap {
+  position: relative;
+  width: 100%;
+}
+
+.list_sitemenu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list_sitemenu li {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.list_sitemenu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.selected_line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+} 

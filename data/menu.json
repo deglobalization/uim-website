@@ -1,0 +1,118 @@
+{
+  "mainMenu": [
+    {
+      "title": "홈",
+      "url": "/",
+      "submenu": []
+    },
+    {
+      "title": "병원소개",
+      "url": "/about/",
+      "submenu": [
+        {
+          "title": "인사말",
+          "url": "/about/greeting.html"
+        },
+        {
+          "title": "의료진 소개",
+          "url": "/about/doctors.html"
+        },
+        {
+          "title": "진료시간",
+          "url": "/about/hours.html"
+        },
+        {
+          "title": "병원 둘러보기",
+          "url": "/about/facilities.html"
+        },
+        {
+          "title": "오시는 길",
+          "url": "/about/directions.html"
+        }
+      ]
+    },
+    {
+      "title": "소화기내과 진료",
+      "url": "/services/digestive.html",
+      "submenu": []
+    },
+    {
+      "title": "내시경센터",
+      "url": "/services/endoscopy.html",
+      "submenu": []
+    },
+    {
+      "title": "위/대장내시경",
+      "url": "/services/colonoscopy.html",
+      "submenu": []
+    },
+    {
+      "title": "용종절제술",
+      "url": "/services/polyp.html",
+      "submenu": []
+    },
+    {
+      "title": "건강검진",
+      "url": "/checkup/",
+      "submenu": [
+        {
+          "title": "공단일반검진",
+          "url": "/checkup/basic.html"
+        },
+        {
+          "title": "공단5대암검진",
+          "url": "/checkup/cancer.html"
+        },
+        {
+          "title": "채용검진",
+          "url": "/checkup/employment.html"
+        },
+        {
+          "title": "개인종합건강검진",
+          "url": "/checkup/premium.html"
+        }
+      ]
+    },
+    {
+      "title": "내과진료",
+      "url": "/clinic/general.html",
+      "submenu": []
+    },
+    {
+      "title": "특화센터",
+      "url": "/clinic/specialized.html",
+      "submenu": [
+        {
+          "title": "초음파클리닉",
+          "url": "/clinic/specialized.html#ultrasound"
+        },
+        {
+          "title": "면역 수액클리닉",
+          "url": "/clinic/specialized.html#immune"
+        },
+        {
+          "title": "암면역 클리닉",
+          "url": "/clinic/specialized.html#cancer"
+        },
+        {
+          "title": "비만클리닉",
+          "url": "/clinic/specialized.html#obesity"
+        },
+        {
+          "title": "변비클리닉",
+          "url": "/clinic/specialized.html#constipation"
+        }
+      ]
+    },
+    {
+      "title": "고객의 소리",
+      "url": "/customer/voice.html",
+      "submenu": []
+    },
+    {
+      "title": "비급여",
+      "url": "/customer/non-covered.html",
+      "submenu": []
+    }
+  ]
+} 

@@ -1,0 +1,247 @@
+/* About Page Styles */
+.page-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.about-section {
+  padding: 4rem 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+}
+
+.about-text h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-doctors {
+  padding: 4rem 0;
+  background-color: var(--secondary-color);
+}
+
+.doctor-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.doctor-info {
+  padding: 1.5rem;
+}
+
+.doctor-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.doctor-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--light-text-color);
+}
+
+.doctor-bio {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.doctor-specialties {
+  margin-top: 1rem;
+}
+
+.doctor-specialties li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* 시설 정보 페이지 스타일 */
+.facilities-page-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.facilities-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.facilities-intro h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.facilities-intro p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.facilities-page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+  margin-bottom: 5rem;
+}
+
+.facility-page-item {
+  grid-column: span 6;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin-bottom: 30px;
+}
+
+.facility-page-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+}
+
+.facility-page-image {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.facility-page-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.facility-page-item:hover .facility-page-image img {
+  transform: scale(1.05);
+}
+
+.facility-page-info {
+  padding: 25px;
+  background-color: white;
+}
+
+.facility-page-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.facility-page-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.facility-page-features {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.facility-page-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.facility-page-feature i {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.facility-cta-section {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.facility-cta-section h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.facility-cta-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.facility-cta-section .btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 71, 157, 0.2);
+}
+
+@media (max-width: 992px) {
+  .facilities-page-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .facility-page-item {
+    grid-column: span 12;
+  }
+  
+  .facility-page-image {
+    height: 250px;
+  }
+  
+  .facilities-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .facilities-intro p {
+    font-size: 1rem;
+  }
+} 

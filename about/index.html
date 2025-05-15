@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="고운속내과의원 병원소개입니다.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="고운속내과의원">
+  <meta property="og:title" content="고운속내과의원 - 병원소개">
+  <meta property="og:description" content="고운속내과의원 병원소개입니다.">
+  <meta property="og:image" content="/assets/images/mosaAOig7L.png">
+  <meta property="og:url" content="https://gounsokim.com/about/">
+  
+  <title>병원소개 | 고운속내과의원</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <!-- #include file="/components/header.html" -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">병원소개</h1>
+        <p class="page-subtitle">고운속내과의원을 소개합니다.</p>
+      </div>
+    </section>
+    
+    <!-- 병원소개 메뉴 -->
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <i class="fas fa-user-md fa-3x mb-3"></i>
+                <h3>인사말</h3>
+                <p>고운속내과의원의 인사말과 진료 철학을 소개합니다.</p>
+                <a href="/about/greeting.html" class="btn mt-3">자세히 보기</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <i class="far fa-clock fa-3x mb-3"></i>
+                <h3>진료시간</h3>
+                <p>고운속내과의원의 진료시간 안내입니다.</p>
+                <a href="/about/hours.html" class="btn mt-3">자세히 보기</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <i class="fas fa-map-marker-alt fa-3x mb-3"></i>
+                <h3>오시는 길</h3>
+                <p>고운속내과의원 위치 및 교통편 안내입니다.</p>
+                <a href="/about/directions.html" class="btn mt-3">자세히 보기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <i class="fas fa-hospital fa-3x mb-3"></i>
+                <h3>시설 안내</h3>
+                <p>고운속내과의원의 최신 시설과 의료장비를 소개합니다.</p>
+                <a href="/about/facilities.html" class="btn mt-3">자세히 보기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 병원 정보 -->
+        <div class="card mt-4">
+          <div class="card-body">
+            <h2 class="section-title">고운속내과의원</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3>병원 정보</h3>
+                <ul class="contact-info">
+                  <li><i class="fas fa-map-marker-alt"></i> 주소: 경기도 하남시 위례학암로 14번길 18 서미프라자 4층</li>
+                  <li><i class="fas fa-phone"></i> 전화: 02-449-1119</li>
+                  <li><i class="far fa-clock"></i> 진료시간: 평일 08:30-18:00, 토요일 08:30-13:00</li>
+                  <li><i class="fas fa-utensils"></i> 점심시간: 13:00-14:00</li>
+                  <li><i class="fas fa-calendar-times"></i> 휴진: 일요일 및 공휴일</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3>전문 진료 분야</h3>
+                <ul>
+                  <li>소화기내과 전문 진료</li>
+                  <li>위/대장내시경 검사</li>
+                  <li>용종절제술</li>
+                  <li>건강검진</li>
+                  <li>일반내과 진료</li>
+                  <li>특화 클리닉 운영</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <!-- #include file="/components/footer.html" -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  
+  <!-- Include Components -->
+  <script>
+    $(function() {
+      $("#header-placeholder").load("/components/header.html");
+      $("#footer-placeholder").load("/components/footer.html");
+    });
+  </script>
+</body>
+</html> 

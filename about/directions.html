@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="고운속내과의원 오시는 길 안내입니다.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="고운속내과의원">
+  <meta property="og:title" content="고운속내과의원 - 오시는 길">
+  <meta property="og:description" content="고운속내과의원 오시는 길 안내입니다.">
+  <meta property="og:image" content="/assets/images/mosaAOig7L.png">
+  <meta property="og:url" content="https://gounsokim.com/about/directions.html">
+  
+  <title>오시는 길 | 고운속내과의원</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <!-- #include file="/components/header.html" -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">오시는 길</h1>
+        <p class="page-subtitle">고운속내과의원 위치 안내입니다.</p>
+      </div>
+    </section>
+    
+    <!-- Directions Section -->
+    <section class="directions">
+      <div class="container">
+        <div class="directions-content">
+          <div class="directions-map">
+            <!-- 지도 영역 (실제 구현 시 Google Maps 또는 Kakao Maps API 사용) -->
+            <div style="background-color: #eee; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center;">
+              <p>지도가 표시될 영역</p>
+            </div>
+          </div>
+          
+          <div class="directions-info">
+            <h3>고운속내과의원</h3>
+            <div class="directions-address mb-4">
+              <p><i class="fas fa-map-marker-alt"></i> 경기도 하남시 위례학암로 14번길 18 서미프라자(배스킨라빈스 북위례점) 4층</p>
+              <p><i class="fas fa-phone"></i> 02-449-1119</p>
+            </div>
+            
+            <div class="directions-transport">
+              <h4><i class="fas fa-bus"></i> 대중교통 이용 시</h4>
+              <div class="mb-3">
+                <h5>지하철</h5>
+                <ul>
+                  <li>8호선 남한산성입구역 2번 출구에서 버스 환승</li>
+                  <li>5호선 마천역 1번 출구에서 버스 환승</li>
+                </ul>
+              </div>
+              
+              <div class="mb-3">
+                <h5>버스</h5>
+                <ul>
+                  <li><strong>일반버스:</strong> 32, 57, 116, 119</li>
+                  <li><strong>마을버스:</strong> 하남01, 하남21</li>
+                  <li><strong>정류장:</strong> 위례동주민센터 하차 후 도보 5분</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="directions-car">
+              <h4><i class="fas fa-car"></i> 자가용 이용 시</h4>
+              <ul>
+                <li>서울외곽순환고속도로 송파IC에서 위례방향 10분</li>
+                <li>서울외곽순환고속도로 하남IC에서 위례방향 15분</li>
+                <li>건물 내 지하주차장 이용 가능 (2시간 무료주차)</li>
+              </ul>
+            </div>
+            
+            <div class="directions-nearby mt-4">
+              <h4><i class="fas fa-map-signs"></i> 주변 건물</h4>
+              <ul>
+                <li>배스킨라빈스 북위례점 건물 4층</li>
+                <li>위례동주민센터 맞은편</li>
+                <li>위례중앙푸르지오 아파트 단지 인근</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-box mt-5">
+          <h3>문의 및 예약</h3>
+          <p>진료 및 검진 문의: 02-449-1119</p>
+          <p>팩스: 02-449-1120</p>
+          <p>이메일: gounsokim@gmail.com</p>
+          <a href="/about/hours.html" class="btn mt-2">진료시간 안내</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <!-- #include file="/components/footer.html" -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  
+  <!-- Include Components -->
+  <script>
+    $(function() {
+      $("#header-placeholder").load("/components/header.html");
+      $("#footer-placeholder").load("/components/footer.html");
+    });
+  </script>
+</body>
+</html> 

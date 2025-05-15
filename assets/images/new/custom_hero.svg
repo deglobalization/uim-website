@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <!-- 배경 -->
+  <defs>
+    <linearGradient id="banner-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#83c3f3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#banner-gradient)" />
+  
+  <!-- 의료 아이콘 패턴 (배경) -->
+  <g fill="#ffffff" opacity="0.05">
+    <path d="M100,100 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M300,150 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M500,80 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M700,200 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M900,120 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M1100,170 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M200,250 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M400,300 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M600,330 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M800,280 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+    <path d="M1000,320 h40 v-20 h20 v20 h40 v20 h-40 v40 h-20 v-40 h-40 z" />
+  </g>
+  
+  <!-- 병원 아이콘 -->
+  <g transform="translate(150, 180) scale(2.5)" fill="#ffffff">
+    <path d="M8 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H8V1Zm2 2H8v10a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3h-2ZM2 5h4v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5Zm11 8a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5h4v8Z"/>
+  </g>
+  
+  <!-- 텍스트 영역 -->
+  <g transform="translate(300, 180)">
+    <text x="0" y="0" font-family="'Noto Sans KR', sans-serif" font-size="48" font-weight="700" fill="#ffffff">
+      고운속내과의원
+    </text>
+    <text x="0" y="60" font-family="'Noto Sans KR', sans-serif" font-size="28" font-weight="400" fill="#ffffff">
+      바른 진료, 수준 높은 진료로 늘 함께 하겠습니다.
+    </text>
+  </g>
+  
+  <!-- 장식 요소 -->
+  <g stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M50,350 C200,330 400,380 600,350 C800,320 1000,370 1150,340" opacity="0.3" />
+    <path d="M50,330 C200,310 400,360 600,330 C800,300 1000,350 1150,320" opacity="0.5" />
+    <path d="M50,310 C200,290 400,340 600,310 C800,280 1000,330 1150,300" opacity="0.7" />
+  </g>
+</svg> 
