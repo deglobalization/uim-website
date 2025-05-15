@@ -189,31 +189,31 @@ function initFacilitiesSlider() {
   // 갤러리 데이터
   const galleryItems = [
     {
-      src: "/assets/images/facilities/mosaH9SH8k.jpeg",
+      src: "/gounsokim-website/assets/images/facilities/mosaH9SH8k.jpeg",
       title: "현대적인 리셉션",
       desc: "환자분들을 친절히 맞이하는 현대적인 리셉션 공간입니다.",
       filter: "image-filter-elegant"
     },
     {
-      src: "/assets/images/facilities/mosa2fTcOd.jpeg",
+      src: "/gounsokim-website/assets/images/facilities/mosa2fTcOd.jpeg",
       title: "첨단 내시경 센터",
       desc: "최신 내시경 장비로 정확하고 안전한 검사를 제공합니다.",
       filter: "image-filter-warm"
     },
     {
-      src: "/assets/images/facilities/mosackqd6q.jpeg",
+      src: "/gounsokim-website/assets/images/facilities/mosackqd6q.jpeg",
       title: "",
       desc: "",
       filter: "image-filter-medical"
     },
     {
-      src: "/assets/images/facilities/mosar5JXgk.jpeg",
+      src: "/gounsokim-website/assets/images/facilities/mosar5JXgk.jpeg",
       title: "현대적인 진료실",
       desc: "최신 의료 장비를 갖춘 진료실에서 정확한 진단을 제공합니다.",
       filter: "image-filter-crisp"
     },
     {
-      src: "/assets/images/facilities/mosaLMsOTh.jpeg",
+      src: "/gounsokim-website/assets/images/facilities/mosaLMsOTh.jpeg",
       title: "쾌적한 대기 공간",
       desc: "진료 전 편안하게 대기할 수 있는 안락한 공간입니다.",
       filter: "image-filter-elegant"
