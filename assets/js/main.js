@@ -2,6 +2,36 @@
  * Main JavaScript File
  */
 document.addEventListener('DOMContentLoaded', function() {
+  initMobileNav();
+  
+  // 시설 섹션 슬라이더 초기화
+  initFacilitiesSlider();
+  
+  // 시설 갤러리 페이지 슬라이더 초기화
+  if (document.querySelector('.fullscreen-slider')) {
+    // 이미 facilities.html에 슬라이더 코드가 있으므로 아무 작업도 하지 않음
+  }
+  
+  // Back to top button
+  initBackToTop();
+  
+  // Facilities Slider
+  initFacilitiesMainSlider();
+  
+  // Image lazy loading
+  initLazyLoading();
+});
+
+// 동적으로 로드된 헤더에 모바일 내비게이션 이벤트를 등록
+window.addEventListener('load', function() {
+  // 약간의 지연을 두고 실행하여 헤더가 완전히 로드될 시간을 확보
+  setTimeout(function() {
+    initMobileNav();
+  }, 500);
+});
+
+// 모바일 내비게이션 초기화 함수
+function initMobileNav() {
   // Mobile navigation toggle
   const navToggle = document.querySelector('.nav_toggle');
   const navMain = document.querySelector('.nav_main');
@@ -126,16 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // 시설 섹션 슬라이더 초기화
-  initFacilitiesSlider();
-  
-  // 시설 갤러리 페이지 슬라이더 초기화
-  if (document.querySelector('.fullscreen-slider')) {
-    // 이미 facilities.html에 슬라이더 코드가 있으므로 아무 작업도 하지 않음
-  }
-  
-  // Back to top button
+}
+
+// Back to top button 초기화
+function initBackToTop() {
   const backToTopBtn = document.querySelector('.back-to-top');
   
   if (backToTopBtn) {
@@ -155,8 +179,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
-  // Facilities Slider
+}
+
+// 메인 시설 슬라이더 초기화
+function initFacilitiesMainSlider() {
   const sliderContainer = document.querySelector('.slider-container');
   const sliderPrev = document.querySelector('.slider-prev');
   const sliderNext = document.querySelector('.slider-next');
@@ -205,8 +231,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
-  
-  // Image lazy loading
+}
+
+// 이미지 지연 로딩 초기화
+function initLazyLoading() {
   if ('IntersectionObserver' in window) {
     const lazyImages = document.querySelectorAll('img[data-src]');
     
@@ -260,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', lazyLoad);
     window.addEventListener('orientationChange', lazyLoad);
   }
-});
+}
 
 // 시설 섹션 슬라이더 초기화 함수
 function initFacilitiesSlider() {
