@@ -182,6 +182,60 @@
       margin-top: 10px;
     }
     
+    .doctor-profile-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .doctor-image {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .doctor-portrait {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .doctor-details {
+      flex: 2;
+    }
+    
+    .doctor-credentials {
+      margin-top: 20px;
+    }
+    
+    .doctor-credentials h4 {
+      font-size: 1.1rem;
+      color: #3498db;
+      margin: 20px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .doctor-credentials ul {
+      list-style-type: none;
+      padding-left: 5px;
+      margin: 0;
+    }
+    
+    .doctor-credentials li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .doctor-credentials li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
+    
     @media (min-width: 768px) {
       .greeting-content {
         flex-direction: row;
@@ -189,6 +243,11 @@
       
       .greeting-text {
         flex: 2;
+      }
+      
+      .doctor-profile-flex {
+        flex-direction: row;
+        align-items: flex-start;
       }
     }
   </style>
@@ -262,9 +321,42 @@
         <h2 class="section-title">의료진 소개</h2>
         <div class="doctor-content">
           <div class="doctor-info">
-            <h3>유인환 원장</h3>
-            <p class="doctor-position">소화기내과 전문의</p>
-            <p>[유인환 원장의 사진 - 전문적이고 신뢰감 있는 모습]</p>
+            <div class="doctor-profile-flex">
+              <div class="doctor-image">
+                <img src="/assets/images/doctors/doctor.png" alt="유인환 원장" class="doctor-portrait">
+              </div>
+              <div class="doctor-details">
+                <h3>유인환 원장</h3>
+                <p class="doctor-position">소화기내과 전문의</p>
+                <div class="doctor-credentials">
+                  <h4>학력</h4>
+                  <ul>
+                    <li>서울대학교 의과대학 졸업</li>
+                    <li>서울대학교 의과대학 내과학 석사</li>
+                    <li>서울대학교 의과대학 소화기내과학 박사</li>
+                  </ul>
+                  
+                  <h4>경력</h4>
+                  <ul>
+                    <li>서울대학교병원 소화기내과 전임의</li>
+                    <li>서울아산병원 소화기내과 전문의</li>
+                    <li>대한소화기내시경학회 정회원</li>
+                    <li>대한소화기학회 정회원</li>
+                    <li>현) 유내과의원 원장</li>
+                  </ul>
+                  
+                  <h4>전문 분야</h4>
+                  <ul>
+                    <li>위·대장 내시경 검사 및 치료</li>
+                    <li>위염, 위궤양, 십이지장 궤양</li>
+                    <li>대장염, 대장용종</li>
+                    <li>역류성 식도염, 기능성 소화불량</li>
+                    <li>과민성 대장 증후군</li>
+                    <li>만성 간질환, 지방간</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -279,13 +371,13 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   <!-- Main JS -->
-  <script src="/gounsokim-website/assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
   
   <!-- Include Components -->
   <script>
     $(function() {
-      $("#header-placeholder").load("/gounsokim-website/components/header.html");
-      $("#footer-placeholder").load("/gounsokim-website/components/footer.html");
+      $("#header-placeholder").load("/components/header.html");
+      $("#footer-placeholder").load("/components/footer.html");
     });
   </script>
 </body>
