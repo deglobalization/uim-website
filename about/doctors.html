@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="수준 높은 진료, 따뜻한 마음으로 늘 함께 하겠습니다.">
+  <meta name="description" content="유내과의원 의료진 소개 페이지입니다.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="유내과의원">
-  <meta property="og:title" content="유내과의원 - 인사말">
-  <meta property="og:description" content="수준 높은 진료, 따뜻한 마음으로 늘 함께 하겠습니다.">
+  <meta property="og:title" content="유내과의원 - 의료진 소개">
+  <meta property="og:description" content="유내과의원 의료진 소개 페이지입니다.">
   <meta property="og:image" content="/uim-website/assets/images/mosaAOig7L.png">
   <meta property="og:url" content="https://deglobalization.github.io/uim-website/about/doctors.html">
   
-  <title>인사말 | 유내과의원</title>
+  <title>의료진 소개 | 유내과의원</title>
   
   <!-- Favicon -->
   <link rel="shortcut icon" href="/uim-website/favicon.ico" type="image/x-icon">
@@ -27,7 +27,117 @@
   
   <!-- Main CSS -->
   <link rel="stylesheet" href="/uim-website/assets/css/main.css">
-  <link rel="stylesheet" href="/uim-website/assets/css/pages/about.css">
+  
+  <style>
+    .doctor-profile {
+      margin-top: 30px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .doctor-info {
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .doctor-position {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      font-size: 0.9rem;
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    
+    .doctor-profile-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .doctor-image {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .doctor-portrait {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .doctor-details {
+      flex: 2;
+    }
+    
+    .doctor-credentials {
+      margin-top: 20px;
+    }
+    
+    .doctor-credentials h4 {
+      font-size: 1.1rem;
+      color: #3498db;
+      margin: 20px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .doctor-credentials ul {
+      list-style-type: none;
+      padding-left: 5px;
+      margin: 0;
+    }
+    
+    .doctor-credentials li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .doctor-credentials li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
+    
+    .contact-info {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .contact-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #3498db;
+    }
+    
+    .contact-info p {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: #3498db;
+    }
+    
+    @media (min-width: 768px) {
+      .doctor-profile-flex {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -39,14 +149,45 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <h1 class="page-title">인사말</h1>
-        <p class="page-subtitle">유내과의원을 찾아주셔서 감사합니다.</p>
+        <h1 class="page-title">의료진 소개</h1>
+        <p class="page-subtitle">유내과의원 전문 의료진을 소개합니다.</p>
       </div>
     </section>
     
-
-    
-
+    <!-- Doctor Profile Section -->
+    <section class="doctor-profile">
+      <div class="container">
+        <div class="doctor-content">
+          <div class="doctor-info">
+            <div class="doctor-profile-flex">
+              <div class="doctor-image">
+                <img src="/uim-website/assets/images/doctors/doctor.png" alt="유인환 원장" class="doctor-portrait">
+              </div>
+              <div class="doctor-details">
+                <h3>유인환 원장</h3>
+                <p class="doctor-position">소화기내과 전문의</p>
+                <div class="doctor-credentials">
+                  <h4>전문 분야</h4>
+                  <ul>
+                    <li>위·대장 내시경 검사 및 치료</li>
+                    <li>위염, 위궤양, 십이지장 궤양</li>
+                    <li>대장염, 대장용종</li>
+                    <li>역류성 식도염, 기능성 소화불량</li>
+                    <li>과민성 대장 증후군</li>
+                    <li>만성 간질환, 지방간</li>
+                  </ul>
+                </div>
+                
+                <div class="contact-info">
+                  <h4>진료 문의 및 예약</h4>
+                  <p><i class="fas fa-phone-alt"></i>031-795-1255</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   
   <!-- Footer -->
